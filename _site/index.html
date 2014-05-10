@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="/stylesheets/print.css" media="print" />
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>jQuery DOM Elements Creator | jquery-domec | RaYell's GitHub</title>
+</head>
+
+<body>
+    <header>
+        <div class="inner">
+            <h1>jquery-domec</h1>
+            <h2>jQuery DOM Elements Creator</h2>
+            <a href="https://github.com/RaYell/jquery-domec" class="button">
+                <small>Fork me on</small>GitHub</a>
+        </div>
+    </header>
+
+    <div id="content-wrapper">
+        <div class="inner clearfix">
+            <section id="main-content">
+                <p><a href="https://travis-ci.org/RaYell/jquery-domec"><img src="https://travis-ci.org/RaYell/jquery-domec.svg?branch=master" alt="Build Status" /></a>
+<a href="https://coveralls.io/r/RaYell/jquery-domec?branch=master"><img src="https://coveralls.io/repos/RaYell/jquery-domec/badge.png?branch=master" alt="Coverage Status" /></a></p>
+
+<h2 id="requirements">Requirements</h2>
+
+<p>jQuery library is required to use this extension. It can be downloaded from <a href="http://jquery.com">jQuery Web Page</a>.</p>
+
+<h2 id="setup">Setup</h2>
+
+<p>Install the library using Bower</p>
+
+<p><code>
+bower install jquery-domec --save
+</code></p>
+
+<p>Import plugin file after importing the jQuery library.</p>
+
+<p><code>html
+&lt;script src="bower_components/jquery-domec/dist/jquery-domec.min.js"&gt;&lt;/script&gt;
+</code></p>
+
+<h2 id="syntax">Syntax</h2>
+<p><code>javascript
+$.create(name[, options]);
+</code></p>
+
+<h3 id="parameters">Parameters</h3>
+<p>| <strong>Type</strong> | <strong>Name</strong> | <strong>Description</strong> | <strong>Default value</strong> |
+| ——– | ——– | ————— | —————– |
+| <code>string</code> | <code>name</code> | name of the element to create | |
+| <code>object</code> | <code>options</code> | element options | <code>{}</code> |</p>
+
+<h3 id="options">Options</h3>
+<p>| <strong>Type</strong> | <strong>Name</strong> | <strong>Description</strong> | <strong>Default value</strong> |
+| ——– | ——– | ————— | —————– |
+| <code>object</code> | <code>attributes</code> | element properties to be set | <code>{}</code> |
+| <code>object</code> | <code>events</code>     | event handlers to be bind with created element, object keys should be strings matching event names and values should be valid event handlers (functions) | <code>{}</code> |
+| <code>string/array</code> | <code>children</code>   | child elements (could also contain text value), passed value will be cast to <code>string</code> type if it’s not of <code>object</code> type | <code>''</code> |
+| <code>object</code> | <code>root</code> | document root element on which new DOM elements should be created, i.e. when the site is using iFrames DOM elements must be created using iFrame’s document object if they are to be used inside an iFrame | <code>document</code> |</p>
+
+<h2 id="examples">Examples</h2>
+<p>### #1 Basic example
+<code>javascript
+$.create('div', {attributes: {id: 'myId'}, children: 'myText'}).appendTo('#myElem');
+</code></p>
+
+<p>Create new <code>&lt;div&gt;</code> element with <code>myId</code> id value and <code>myText</code> text and append it to <code>#myElem</code> element.</p>
+
+<h3 id="iframe-example">#2 iFrame example</h3>
+<p><code>javascript
+$.create('div', {attributes: {id: 'myId'}, children: 'myText', root: $('#myIFrame').get(0).contentDocument});
+</code>
+Create new <code>&lt;div&gt;</code> element with <code>myId</code> id value and <code>myText</code> text on a iFrame with <code>myIFrame</code> id.</p>
+
+<h3 id="event-handler-example">#3 Event handler example</h3>
+<p><code>javascript
+function clickEventHandler() {
+    alert('test');
+}
+$.create('div', {attributes: {id: 'myId'}, events: {click: clickEventHandler}});
+</code></p>
+
+<p>Create new <code>&lt;div&gt;</code> element with <code>myId</code> id value and bind click event handler <code>clickEventHandler</code> to it.</p>
+
+<h2 id="links">Links</h2>
+<ul>
+  <li><a href="https://github.com/RaYell/jquery-domec/wiki/Incompatible-Changes">Incompatible Changes</a></li>
+  <li><a href="https://github.com/RaYell/jquery-domec/wiki/Changelog">Changelog</a></li>
+</ul>
+
+            </section>
+
+            <aside id="sidebar">
+                <a href="https://github.com/RaYell/jquery-domec/archive/1.2.0.zip" class="button">
+                    <small>Download</small>
+                    .zip file
+                </a>
+                <a href="https://github.com/RaYell/jquery-domec/archive/1.2.0.tar.gz" class="button">
+                    <small>Download</small>
+                    .tar.gz file
+                </a>
+            </aside>
+        </div>
+    </div>
+
+</body>
+
+</html>
